@@ -1,0 +1,101 @@
+/** @format */
+
+.curtain {
+  /* The parent container */
+  width: 100%; /* Ensures the component is the full screen width */
+  height: 100vh; /* Makes it the height of the viewport regardless of device */
+  overflow: hidden; /* Allows us to slide the panels outside the container without them showing */
+}
+
+.curtain__wrapper {
+  /* Inside .curtain and needs to be 100% to fit the screen without white space on edge */
+  width: 100%;
+  height: 100%;
+}
+
+.curtain__panel {
+  /* both of the sliding divs that make up the curtain */
+  background-image: repeating-linear-gradient(
+    to right,
+    maroon,
+    red 2%,
+    maroon 5%
+  ); /* gives panels the "curtain" look */
+  width: 50%; /* Each panel takes half the width of the container */
+  height: 100vh; /* makes it have no white space at top or bottom and fills half of viewport */
+  float: left;
+  position: relative; /* Needed to define the z-index */
+  z-index: 2; /* Places the panels in front of the prize. Could use any number as long as it has higher z-index than .curtain__prize */
+  transition: all 8s ease-out; /* Transition property is all and a default value. Affects all properties for this selector. Number is 2 second and is how long animation runs. Ease-out goes faster at beginning and slower at end. */
+}
+
+.curtain__prize {
+  position: absolute; /* used to position image in top let corner */
+  z-index: 1;
+  top: 10%; /* moves div down 10% of the window from the top */
+  left: 25%; /* moves image 25% in from left side */
+  width: 100%; /* makes div 100% of the screen width */
+}
+
+.curtain__prize img {
+  width: 50%; /* resize image to fit in the window appropriately */
+  height: auto; /* makes height proportional to width */
+}
+
+/* ----- checkbox ----- */
+
+input[type="checkbox"] {
+  /* makes the transition clickable */
+  position: absolute; /* Puts checkbox at the starting corner of the container */
+  cursor: pointer; /* Indicate the curtain is clickable and changes it to a hand cursor */
+  width: 100%; /* Makes the checkbox as wide as the container so you can click anywhere in the container */
+  height: 100%; /* Makes the checkbox as tall as the container so you can click anywhere in the container */
+  z-index: 100; /* Make sure the checkbox is on top of every other element */
+  opacity: 0; /* Hides the checkbox. If set to 1, you would see a full height box with a check in it */
+}
+
+/* When the checkbox is checked... */
+
+/* Slide the first panel in */
+input[type="checkbox"]:checked ~ div.curtain__panel--left {
+  transform: translateX(
+    0
+  ); /* changes relative horizontal rendering position of element - in this case it doesn't move to left or right */
+}
+
+/* Slide the second panel in */
+input[type="checkbox"]:checked ~ div.curtain__panel--right {
+  transform: translateX(
+    0
+  ); /* changes relative horizontal rendering position of element - in this case it doesn't move left or right */
+}
+
+/* Slide the panel up out of the container */
+.curtain__panel--left {
+  transform: translateX(
+    -100%
+  ); /* This moves the panel left its full height and hides it off screen*/
+}
+
+/* Slide the panel down below the container */
+.curtain__panel--right {
+  transform: translateX(
+    100%
+  ); /* This moves the panel down its full height and hides it off screen */
+}
+
+/* ----- text ----- */
+
+h2 {
+  color: #fff;
+  text-transform: uppercase; /* changes text to uppercase for any lowercase letter */
+  font-family: Arial, Helvetica, sans-serif; /* changes font from serif */
+  position: absolute; /* positions all h1 at the top left corner of their div */
+  top: 40%; /* moves text down 40% from the top of the window */
+  width: 100%;
+  text-align: left;
+}
+
+.curtain__panel--left h2 {
+  text-align: right;
+}

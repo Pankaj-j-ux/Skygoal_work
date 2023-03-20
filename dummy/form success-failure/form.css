@@ -1,0 +1,82 @@
+/**
+ * Failure / success
+ *
+ * @format
+ */
+
+.success_card_outer,
+.failure_card_outer {
+  padding-top: 40px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.success_card,
+.failure_card {
+  box-shadow: 4px 4px 44px rgba(0, 0, 0, 0.12);
+  border-radius: 12px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 400px;
+  padding: 30px;
+}
+
+.success_card > img,
+.failure_card > img {
+  width: 80px;
+}
+
+.success_card > p:nth-child(2) {
+  font-weight: 800;
+  font-size: 20px;
+
+  color: #0b5100;
+}
+
+.failure_card > p:nth-child(2) {
+  font-weight: 800;
+  font-size: 20px;
+
+  color: #cb4224;
+}
+
+.success_card > p:nth-child(3),
+.failure_card > p:nth-child(3) {
+  font-weight: 600;
+}
+
+.success_card > p:nth-child(4) {
+  font-weight: 700;
+}
+
+.success_card > a,
+.failure_card > a {
+  width: 90%;
+}
+
+.success_card > a > button {
+  background-color: #1ed400;
+  border: none;
+  border-radius: 10px;
+  width: 100%;
+  color: white;
+  height: 40px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.failure_card > a > button {
+  background-color: #cb4224;
+  border: none;
+  border-radius: 10px;
+  width: 100%;
+  color: white;
+  height: 40px;
+  font-size: 20px;
+  font-weight: 700;
+}

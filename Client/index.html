@@ -1,0 +1,52 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>CodePen - CSS Opening Curtain Effect</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <!-- partial:index.partial.html -->
+    <!-- The parent component -->
+    <div class="curtain">
+      <!-- The component wrapper -->
+      <div class="curtain__wrapper">
+        <!-- The checkbox hack! This gives us something to click to move the curtain -->
+        <input id="check" type="checkbox" onclick="clickHandler()" checked />
+
+        <!-- The top curtain panel -->
+        <div class="curtain__panel curtain__panel--left">
+          <h2>Click here to Launch &nbsp;</h2>
+        </div>
+        <!-- curtain__panel -->
+
+        <!-- The prize behind the curtain panels. Shows when panels slide out of view -->
+        <div class="curtain__prize">
+          <img
+            src="./img/Antariksha India.jpg"
+            alt="luxury sports car - creative commons media"
+          />
+        </div>
+        <!-- curtain__prize -->
+
+        <!-- The bottom curtain panel that floats below the top curtain panel and sits on top curtain__prize -->
+        <div class="curtain__panel curtain__panel--right">
+          <h2>&nbsp;Antariksha India Website</h2>
+        </div>
+        <!-- curtain__panel -->
+      </div>
+      <!-- curtain__wrapper -->
+    </div>
+
+    <script>
+      const clickHandler = () => {
+        document.getElementById("check").disabled = true;
+        setTimeout(() => {
+          window.location.href = "https://www.antarikshaindia.org/";
+        }, 9000);
+      };
+    </script>
+  </body>
+</html>
